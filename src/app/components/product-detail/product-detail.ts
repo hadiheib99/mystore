@@ -7,8 +7,8 @@ import { CartService } from '../../services/cart';
 
 @Component({
   selector: 'app-product-detail',
-  templateUrl: './product-detail.html',
-  styleUrl: './product-item-detail.component.css',
+  templateUrl: './product-detail.component.html',
+  styleUrls: ['./product-item-detail.component.css'],
   standalone: false,
 })
 export class ProductDetail {

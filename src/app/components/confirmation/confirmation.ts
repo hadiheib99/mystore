@@ -3,8 +3,8 @@ import { CartService } from '../../services/cart';
 
 @Component({
   selector: 'app-confirmation',
-  templateUrl: './confirmation.html',
-  styleUrl: './confirmation.component.css',
+  templateUrl: './confirmation.component.html',
+  styleUrls: ['./confirmation.component.css'],
   standalone: false,
 })
 export class Confirmation {

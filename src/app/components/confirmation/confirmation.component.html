@@ -1,0 +1,16 @@
+<div class="confirmation">
+  <div class="success-message">
+    <h2>Order Confirmed!</h2>
+    <div class="checkmark">✓</div>
+  </div>
+
+  <div class="order-details">
+    <h3>Thank you for your order, {{ name }}!</h3>
+    <p class="order-total">Order Total: {{ total | currency : 'USD' }}</p>
+    <p class="shipping-info">Your order will be shipped to the address you provided.</p>
+  </div>
+
+  <div class="next-steps">
+    <a routerLink="/" class="continue-shopping">Continue Shopping</a>
+  </div>
+</div>

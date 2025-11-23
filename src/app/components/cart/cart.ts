@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
-  templateUrl: './cart.html',
+  templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css'],
   standalone: false,
 })
@@ -23,7 +23,7 @@ export class Cart {
     return this.cartService.getTotal();
   }
 
-  updateQuantity(id: number, value: string): void {
+  updateQuantity(id: number, value: number | string): void {
     const quantity = Number(value);
     this.cartService.updateQuantity(id, quantity);
     this.items = this.cartService.getItems();

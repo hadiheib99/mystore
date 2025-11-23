@@ -8,4 +8,8 @@ import { Component, signal } from '@angular/core';
 })
 export class App {
   protected readonly title = signal('mystore');
+
+  constructor() {
+    console.log('App component initialized');
+  }
 }

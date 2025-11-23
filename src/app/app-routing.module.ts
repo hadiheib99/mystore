@@ -7,11 +7,16 @@ import { ProductDetail } from './components/product-detail/product-detail';
 import { Cart } from './components/cart/cart';
 import { Confirmation } from './components/confirmation/confirmation';
 
-const routes: Routes = [
+export const routes: Routes = [
   {
     path: '',
+    redirectTo: '/products',
+    pathMatch: 'full',
+  },
+  {
+    path: 'products',
     component: ProductList,
-    title: 'Product List',
+    title: 'Products',
   },
   {
     path: 'product/:id',
@@ -30,8 +35,8 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: '',
-    title: 'Redirect to Product List',
+    redirectTo: '/products',
+    pathMatch: 'full',
   },
 ];
 

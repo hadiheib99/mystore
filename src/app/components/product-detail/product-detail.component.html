@@ -1,0 +1,27 @@
+<div class="product-detail" *ngIf="product">
+  <div class="product-image">
+    <img [src]="product.url" [alt]="product.name" />
+  </div>
+
+  <div class="product-info">
+    <h1>{{ product.name }}</h1>
+    <p class="price">{{ product.price | currency : 'USD' }}</p>
+    <p class="description">{{ product.description }}</p>
+
+    <div class="add-to-cart-section">
+      <label for="quantity">Quantity:</label>
+      <select id="quantity" [(ngModel)]="quantity">
+        <option *ngFor="let num of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]" [value]="num">{{ num }}</option>
+      </select>
+      <button (click)="addToCart()" class="add-to-cart-btn">Add to Cart</button>
+    </div>
+
+    <div class="navigation">
+      <a routerLink="/">← Back to Products</a>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="!product" class="loading">
+  <p>Loading product details...</p>
+</div>

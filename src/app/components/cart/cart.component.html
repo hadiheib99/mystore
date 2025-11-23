@@ -1,0 +1,61 @@
+<div class="cart">
+  <h2>Your Cart</h2>
+
+  <div *ngIf="items.length === 0" class="empty-cart">
+    <p>Your cart is empty</p>
+    <a routerLink="/">Continue Shopping</a>
+  </div>
+
+  <div *ngIf="items.length > 0">
+    <div class="cart-items">
+      <div class="cart-item" *ngFor="let item of items">
+        <img [src]="item.product.url" [alt]="item.product.name" class="item-image" />
+        <div class="item-details">
+          <h3>{{ item.product.name }}</h3>
+          <p class="item-price">{{ item.product.price | currency : 'USD' }}</p>
+          <div class="quantity-controls">
+            <label for="quantity-{{ item.product.id }}">Quantity:</label>
+            <select
+              id="quantity-{{ item.product.id }}"
+              [(ngModel)]="item.quantity"
+              (ngModelChange)="updateQuantity(item.product.id, $event)"
+            >
+              <option *ngFor="let num of [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]" [value]="num">
+                {{ num }}
+              </option>
+            </select>
+          </div>
+          <p class="item-total">
+            Total: {{ item.product.price * item.quantity | currency : 'USD' }}
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cart-summary">
+      <h3>Total: {{ total | currency : 'USD' }}</h3>
+    </div>
+
+    <div class="checkout-form">
+      <h3>Shipping Information</h3>
+      <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="name">Full Name:</label>
+          <input type="text" id="name" [(ngModel)]="name" name="name" required />
+        </div>
+
+        <div class="form-group">
+          <label for="address">Address:</label>
+          <textarea id="address" [(ngModel)]="address" name="address" required rows="3"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="creditCard">Credit Card:</label>
+          <input type="text" id="creditCard" [(ngModel)]="creditCard" name="creditCard" required />
+        </div>
+
+        <button type="submit" class="checkout-btn">Complete Order</button>
+      </form>
+    </div>
+  </div>
+</div>

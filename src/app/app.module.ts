@@ -25,8 +25,9 @@ import { CartService } from './services/cart';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [ProductService, CartService],
-  bootstrap: [App]
+  bootstrap: [App],
 })
 export class AppModule {}
