@@ -8,7 +8,8 @@ import { CartService } from '../../services/cart';
 @Component({
   selector: 'app-product-detail',
   templateUrl: './product-detail.html',
-  styleUrl: './product-item-detail.component.css'
+  styleUrl: './product-item-detail.component.css',
+  standalone: false,
 })
 export class ProductDetail {
   product: Product | undefined;
@@ -22,7 +23,7 @@ export class ProductDetail {
 
   ngOnInit() {
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.productService.getProduct(id).subscribe(p => this.product = p);
+    this.productService.getProduct(id).subscribe((p) => (this.product = p));
   }
 
   addToCart() {

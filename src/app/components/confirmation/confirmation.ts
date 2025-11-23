@@ -5,7 +5,7 @@ import { CartService } from '../../services/cart';
   selector: 'app-confirmation',
   templateUrl: './confirmation.html',
   styleUrl: './confirmation.component.css',
-  standalone:true
+  standalone: false,
 })
 export class Confirmation {
   name = '';

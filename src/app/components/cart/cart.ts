@@ -6,8 +6,8 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.html',
-  styleUrl:'./cart.component.css', 
-  standalone:false
+  styleUrls: ['./cart.component.css'],
+  standalone: false,
 })
 export class Cart {
   items: CartItem[];

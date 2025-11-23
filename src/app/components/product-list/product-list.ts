@@ -5,33 +5,31 @@ import { CartService } from '../../services/cart';
 
 @Component({
   selector: 'app-product-list',
-  standalone:false,
   templateUrl: './product-list.html',
-  styleUrl:'./product-list.css'
+  styleUrls: ['./product-list.css'],
+  standalone: false,
 })
 export class ProductList implements OnInit {
   products: Product[] = [];
-  loading = false;
-  error = '';
+  selectedQuantities: { [key: number]: number } = {};
 
   constructor(private productService: ProductService, private cartService: CartService) {}
 
   ngOnInit(): void {
-    this.loading = true;
-    this.productService.getProducts().subscribe({
-      next: (products) => {
-        this.products = products;
-        this.loading = false;
-      },
-      error: () => {
-        this.error = 'Failed to load products.';
-        this.loading = false;
-      },
+    this.productService.getProducts().subscribe((products) => {
+      this.products = products;
+      // Initialize quantities to 1 for each product
+      products.forEach((p) => (this.selectedQuantities[p.id] = 1));
     });
   }
 
+  trackByProductId(index: number, product: Product): number {
+    return product.id;
+  }
+
   addToCart(product: Product): void {
-    this.cartService.addToCart(product, 1);
-    alert(`${product.name} added to cart`);
+    const quantity = this.selectedQuantities[product.id] || 1;
+    this.cartService.addToCart(product, quantity);
+    alert(`Added ${quantity} ${product.name} to cart!`);
   }
 }
