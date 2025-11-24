@@ -41,4 +41,7 @@ export class Cart {
     // go to confirmation
     this.router.navigate(['/confirmation']);
   }
+  goBack(): void {
+    this.router.navigate(['/products']);
+  }
 }

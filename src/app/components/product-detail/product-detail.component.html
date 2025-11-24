@@ -1,9 +1,10 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <div class="product-detail" *ngIf="product">
   <button class="back-button" (click)="goBack()">← Back to Products</button>
   
-  <div class="product-detail-content">
+  <div class="product-detail-content card ">
     <div class="product-image">
-      <img [src]="product.url" [alt]="product.name" />
+      <img class="card-img-top" [src]="product.url" [alt]="product.name" />
     </div>
     
     <div class="product-info">
@@ -11,13 +12,13 @@
       <p class="price">{{ product.price | currency : 'USD' }}</p>
       
       <div class="description">
-        <h3>Description</h3>
+  
         <p>{{ product.description }}</p>
       </div>
       
       <div class="add-to-cart-section">
         <label for="quantity">Quantity:</label>
-        <select id="quantity" [(ngModel)]="selectedQuantity">
+        <select class="dropdown" id="quantity" [(ngModel)]="selectedQuantity">
           <option *ngFor="let num of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]" [value]="num">
             {{ num }}
           </option>

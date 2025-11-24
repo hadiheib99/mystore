@@ -1,12 +1,12 @@
-<div class="cart">
+<div>
   <h2>Your Cart</h2>
-
+  <button class="back-button" (click)="goBack()">← Back to Products</button>
   <div *ngIf="items.length === 0" class="empty-cart">
     <p>Your cart is empty</p>
     <a routerLink="/">Continue Shopping</a>
   </div>
 
-  <div *ngIf="items.length > 0">
+  <div class="cart" *ngIf="items.length > 0">
     <div class="cart-items">
       <div class="cart-item" *ngFor="let item of items">
         <img [src]="item.product.url" [alt]="item.product.name" class="item-image" />
@@ -30,10 +30,9 @@
           </p>
         </div>
       </div>
-    </div>
-
-    <div class="cart-summary">
-      <h3>Total: {{ total | currency : 'USD' }}</h3>
+      <div class="cart-summary">
+        <h3>Total: {{ total | currency : 'USD' }}</h3>
+      </div>
     </div>
 
     <div class="checkout-form">
@@ -46,7 +45,14 @@
 
         <div class="form-group">
           <label for="address">Address:</label>
-          <textarea id="text" [(ngModel)]="address" name="address" required rows="3"></textarea>
+          <textarea
+            type="Address"
+            id="text"
+            [(ngModel)]="address"
+            name="address"
+            required
+            rows="3"
+          ></textarea>
         </div>
 
         <div class="form-group">
