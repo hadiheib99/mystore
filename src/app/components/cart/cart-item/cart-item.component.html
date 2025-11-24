@@ -1,0 +1,23 @@
+<!-- Cart Item Component Template -->
+<!-- Demonstrates @Input data binding from parent and @Output event emission to parent -->
+
+<div class="cart-item">
+  <img [src]="item.product.url" [alt]="item.product.name" class="item-image" />
+  <div class="item-details">
+    <h3>{{ item.product.name }}</h3>
+    <p class="item-price">{{ item.product.price | currency : 'USD' }}</p>
+    <div class="quantity-controls">
+      <label [for]="'quantity-' + item.product.id">Quantity:</label>
+      <select
+        [id]="'quantity-' + item.product.id"
+        [(ngModel)]="item.quantity"
+        (ngModelChange)="onQuantityChange($event)"
+      >
+        <option *ngFor="let num of [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]" [value]="num">
+          {{ num }}
+        </option>
+      </select>
+    </div>
+    <p class="item-total">Total: {{ item.product.price * item.quantity | currency : 'USD' }}</p>
+  </div>
+</div>

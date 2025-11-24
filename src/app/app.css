@@ -1,3 +1,6 @@
+/* Main Application Layout */
+
+/* Top navigation bar */
 .top-bar {
   background: #007bff;
   color: white;
@@ -7,16 +10,19 @@
   align-items: center;
 }
 
+/* Brand/logo styling */
 .brand {
   font-size: 1.5rem;
   font-weight: bold;
 }
 
+/* Navigation links container */
 .nav-links {
   display: flex;
   gap: 1rem;
 }
 
+/* Individual navigation link styling */
 .nav-links a {
   color: white;
   text-decoration: none;
@@ -24,11 +30,13 @@
   border-radius: 4px;
 }
 
+/* Navigation link hover and active states */
 .nav-links a:hover,
 .nav-links a.active {
   background: rgba(255, 255, 255, 0.2);
 }
 
+/* Main content area */
 .main-content {
   padding: 2rem;
   min-height: 80vh;

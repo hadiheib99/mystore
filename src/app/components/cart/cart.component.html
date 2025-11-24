@@ -8,6 +8,20 @@
 
   <div class="cart" *ngIf="items.length > 0">
     <div class="cart-items">
+      <!-- 
+        Demonstrates parent-child communication using @Input and @Output decorators
+        - Parent passes data TO child via @Input (item)
+        - Parent receives events FROM child via @Output (quantityUpdate)
+      -->
+      <app-cart-item
+        *ngFor="let item of items"
+        [item]="item"
+        (quantityUpdate)="onQuantityUpdate($event)"
+      >
+      </app-cart-item>
+
+      <!-- Legacy implementation for comparison - can be removed after testing -->
+      <!-- 
       <div class="cart-item" *ngFor="let item of items">
         <img [src]="item.product.url" [alt]="item.product.name" class="item-image" />
         <div class="item-details">
@@ -30,6 +44,8 @@
           </p>
         </div>
       </div>
+      -->
+
       <div class="cart-summary">
         <h3>Total: {{ total | currency : 'USD' }}</h3>
       </div>

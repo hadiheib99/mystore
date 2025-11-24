@@ -1,3 +1,6 @@
+/* Product Detail Component Styles */
+
+/* Main product detail content container */
 .product-detail-content {
   display: flex;
   justify-content: center;
@@ -7,22 +10,51 @@
   max-width: 900px;
   margin: 20px auto;
   padding: 20px;
-
   border-radius: 8px;
 }
+
+/* Card component styling */
 .card {
   border: none;
 }
 
+/* Detail item container */
 .detail-item {
-  margin: 0; /* keep it tight */
+  margin: 0;
 }
 
+/* Product detail container */
+.detail-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 64px;
+}
+
+/* Product images */
 img {
   border-radius: 10px;
   width: 320px;
 }
 
+/* Product description */
+.description {
+  margin-top: 20px;
+  font-size: 16px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', arial, sans-serif;
+  line-height: 1.5;
+  color: #555;
+}
+
+/* Product price styling */
+.price {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #283fa7;
+  margin-top: 10px;
+}
+
+/* Add to cart section */
 .add-to-cart-section {
   display: flex;
   align-items: center;
@@ -32,28 +64,13 @@ img {
   justify-content: flex-start;
 }
 
+/* Select input styling */
 .select-input {
   width: 108px;
   margin-bottom: 8px;
 }
 
-.detail-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 64px;
-}
-
-.back-link {
-  margin-top: 8px;
-}
-.description {
-  margin-top: 20px;
-  font-size: 16px;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  line-height: 1.5;
-  color: #555;
-}
+/* Add to cart button */
 .add-to-cart-btn {
   background-color: blue;
   color: white;
@@ -64,15 +81,13 @@ img {
   font-weight: bold;
   transition: background-color 0.2s ease;
 }
+
+/* Add to cart button hover effect */
 .add-to-cart-btn:hover {
   background-color: #0056b3;
 }
-.price {
-  font-size: 1.5em;
-  font-weight: bold;
-  color: #283fa7;
-  margin-top: 10px;
-}
+
+/* Back button styling */
 .back-button {
   background-color: #6c757d;
   color: white;
@@ -82,4 +97,9 @@ img {
   cursor: pointer;
   font-weight: bold;
   transition: background-color 0.2s ease;
+}
+
+/* Back link container */
+.back-link {
+  margin-top: 8px;
 }

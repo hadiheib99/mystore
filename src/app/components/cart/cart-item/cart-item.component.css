@@ -1,0 +1,74 @@
+/* Cart Item Component Styles */
+
+/* Individual cart item container */
+.cart-item {
+  display: flex;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid #f4f4f4;
+  flex-direction: row;
+}
+
+/* Last cart item styling */
+.cart-item:last-child {
+  border-bottom: none;
+}
+
+/* Item image styling */
+.item-image {
+  width: 96px;
+  height: 96px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+/* Item details container */
+.item-details {
+  flex: 1;
+}
+
+/* Item details heading */
+.item-details h3 {
+  margin: 0 0 4px;
+  color: #333;
+  font-size: 1.1rem;
+}
+
+/* Item price display */
+.item-price {
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #007bff;
+}
+
+/* Quantity controls container */
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+/* Quantity controls label */
+.quantity-controls label {
+  font-weight: bold;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+/* Quantity controls select */
+.quantity-controls select {
+  padding: 4px 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: white;
+  font-size: 0.9rem;
+}
+
+/* Item total display */
+.item-total {
+  margin-top: 8px;
+  font-weight: 500;
+  color: #28a745;
+  font-size: 1rem;
+}

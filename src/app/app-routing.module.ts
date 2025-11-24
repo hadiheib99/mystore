@@ -1,12 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-// Import your components - make sure these match your actual file names
+// Import components
 import { ProductList } from './components/product-list/product-list';
 import { ProductDetail } from './components/product-detail/product-detail';
 import { Cart } from './components/cart/cart';
 import { Confirmation } from './components/confirmation/confirmation';
 
+/**
+ * @description Application routes configuration.
+ * Defines the navigation structure and component mappings for the application.
+ */
 export const routes: Routes = [
   {
     path: '',
@@ -40,6 +44,11 @@ export const routes: Routes = [
   },
 ];
 
+/**
+ * @description Angular routing module that configures application navigation.
+ * Sets up routes for all main pages and handles route redirects.
+ * @class AppRoutingModule
+ */
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],

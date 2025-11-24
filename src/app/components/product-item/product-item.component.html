@@ -1,0 +1,25 @@
+<!-- Product Item Component Template -->
+<!-- Demonstrates @Input data binding from parent and @Output event emission to parent -->
+
+<div class="product-index card" (click)="onProductSelect()">
+  <img class="card-img-top" [src]="product.url" [alt]="product.name" />
+  <div class="card-body">
+    <h3>{{ product.name }}</h3>
+    <p class="price">{{ product.price | currency : 'USD' }}</p>
+
+    <!-- Add to cart section with event handling -->
+    <div class="add-to-cart-section" (click)="$event.stopPropagation()">
+      <label [for]="'quantity-' + product.id">Quantity:</label>
+      <select
+        [id]="'quantity-' + product.id"
+        [value]="selectedQuantity.toString()"
+        (change)="onQuantityChange($event)"
+      >
+        <option *ngFor="let num of [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]" [value]="num.toString()">
+          {{ num }}
+        </option>
+      </select>
+      <button class="btn btn-primary" (click)="onAddToCart($event)">Add to Cart</button>
+    </div>
+  </div>
+</div>

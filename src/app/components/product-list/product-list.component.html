@@ -8,15 +8,29 @@
   <h2>My Store</h2>
 
   <div class="products-container">
+    <!-- 
+      Demonstrates parent-child communication using @Input and @Output decorators
+      - Parent passes data TO child via @Input (product, selectedQuantity)
+      - Parent receives events FROM child via @Output (quantityChange, addToCart, productSelect)
+    -->
+    <app-product-item
+      *ngFor="let product of products; trackBy: trackByProductId"
+      [product]="product"
+      [selectedQuantity]="selectedQuantities[product.id]"
+      (quantityChange)="onQuantityChange($event)"
+      (addToCart)="onAddToCart($event)"
+      (productSelect)="onProductSelect($event)"
+    >
+    </app-product-item>
+
+    <!-- Legacy implementation for comparison - can be removed after testing -->
+    <!-- 
     <div *ngFor="let product of products; trackBy: trackByProductId">
-      <!-- Make the entire card clickable -->
       <div class="product-index card" style="width: 18rem" [routerLink]="['/product', product.id]">
         <img class="card-img-top" [src]="product.url" [alt]="product.name" />
         <div class="card-body">
           <h3>{{ product.name }}</h3>
           <p class="price">{{ product.price | currency : 'USD' }}</p>
-
-          <!-- Keep the add to cart section separate so it doesn't interfere with card click -->
           <div class="add-to-cart-section" (click)="$event.stopPropagation()">
             <label for="quantity-{{ product.id }}">Quantity:</label>
             <select id="quantity-{{ product.id }}" [(ngModel)]="selectedQuantities[product.id]">
@@ -29,5 +43,6 @@
         </div>
       </div>
     </div>
+    -->
   </div>
 </div>

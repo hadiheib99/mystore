@@ -1,10 +1,14 @@
+/* Header Component Styles */
+
+/* Main header container */
 .header {
   text-align: center;
-  background: #33B5E5;
+  background: #33b5e5;
   color: #fff;
   padding: 12px;
 }
 
+/* Header links */
 a {
   color: #ffffff;
 }

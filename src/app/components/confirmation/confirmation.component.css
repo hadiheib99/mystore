@@ -1,3 +1,6 @@
+/* Confirmation Component Styles */
+
+/* Main confirmation container */
 .confirmation {
   display: flex;
   align-items: center;
@@ -7,22 +10,22 @@
   flex-direction: column;
 }
 
-
+/* Success message heading */
 h2.success-message {
- font-size: 24px;
+  font-size: 24px;
   color: #28bf2b;
   margin-bottom: 20px;
   align-items: center;
 }
 
+/* Order details section */
 .order-details {
   font-size: 18px;
   color: #333;
   margin-bottom: 30px;
 }
 
-
-
+/* Back navigation button */
 .back-button {
   background-color: #6c757d;
   color: white;
@@ -33,6 +36,8 @@ h2.success-message {
   font-weight: bold;
   transition: background-color 0.2s ease;
 }
+
+/* Back button hover effect */
 .back-button:hover {
   background-color: #5a6268;
 }
