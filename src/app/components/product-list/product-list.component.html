@@ -1,24 +1,25 @@
 <div class="product-list">
-  <h2>Products</h2>
+  <h2>My Store</h2>
 
   <div class="products-container">
-    <div class="product-card" *ngFor="let product of products; trackBy: trackByProductId">
-      <img [src]="product.url" [alt]="product.name" />
-      <h3>{{ product.name }}</h3>
-      <p class="price">{{ product.price | currency : 'USD' }}</p>
-      <p class="description">{{ product.description }}</p>
+    <div class="product-card shadow-sm" *ngFor="let product of products; trackBy: trackByProductId">
+      <!-- Make the entire card clickable -->
+      <div class="card-content" [routerLink]="['/product', product.id]">
+        <img class="card-img-top" [src]="product.url"  [alt]="product.name" />
+        <h3>{{ product.name }}</h3>
+        <p class="price">{{ product.price | currency : 'USD' }}</p>
+      </div>
 
-      <div class="add-to-cart-section">
+      <!-- Keep the add to cart section separate so it doesn't interfere with card click -->
+      <div class="add-to-cart-section" (click)="$event.stopPropagation()">
         <label for="quantity-{{ product.id }}">Quantity:</label>
         <select id="quantity-{{ product.id }}" [(ngModel)]="selectedQuantities[product.id]">
           <option *ngFor="let num of [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]" [value]="num">
             {{ num }}
           </option>
         </select>
-        <button (click)="addToCart(product)">Add to Cart</button>
+        <button class="btn btn-primary w-100" (click)="addToCart(product)">Add to Cart</button>
       </div>
-
-      <a [routerLink]="['/product', product.id]" class="details-link">View Details</a>
     </div>
   </div>
 </div>
